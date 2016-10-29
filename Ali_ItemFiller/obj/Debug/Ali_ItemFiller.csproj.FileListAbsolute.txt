@@ -1,0 +1,9 @@
+c:\users\админ\documents\visual studio 2015\Projects\Ali_ItemFiller\Ali_ItemFiller\bin\Debug\Ali_ItemFiller.exe.config
+C:\Users\Админ\documents\visual studio 2015\Projects\Ali_ItemFiller\Ali_ItemFiller\bin\Debug\Ali_ItemFiller.exe
+C:\Users\Админ\documents\visual studio 2015\Projects\Ali_ItemFiller\Ali_ItemFiller\bin\Debug\Ali_ItemFiller.pdb
+C:\Users\Админ\documents\visual studio 2015\Projects\Ali_ItemFiller\Ali_ItemFiller\obj\Debug\Ali_ItemFiller.csprojResolveAssemblyReference.cache
+C:\Users\Админ\documents\visual studio 2015\Projects\Ali_ItemFiller\Ali_ItemFiller\obj\Debug\Ali_ItemFiller.Form1.resources
+C:\Users\Админ\documents\visual studio 2015\Projects\Ali_ItemFiller\Ali_ItemFiller\obj\Debug\Ali_ItemFiller.Properties.Resources.resources
+C:\Users\Админ\documents\visual studio 2015\Projects\Ali_ItemFiller\Ali_ItemFiller\obj\Debug\Ali_ItemFiller.csproj.GenerateResource.Cache
+C:\Users\Админ\documents\visual studio 2015\Projects\Ali_ItemFiller\Ali_ItemFiller\obj\Debug\Ali_ItemFiller.exe
+C:\Users\Админ\documents\visual studio 2015\Projects\Ali_ItemFiller\Ali_ItemFiller\obj\Debug\Ali_ItemFiller.pdb
