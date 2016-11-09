@@ -13,13 +13,13 @@ namespace Ali_ItemFiller
 
     }
 
-    public void Parse(string httpAdr)
+    public List<ItemCard> Parse(string httpAdr)
     {
       string S = WebTools.GetPageSourceCode(httpAdr);
       List<string> ItemChunks = SplitSourcePage(S);
       List<ItemCard> ItemCards = FillItemCards(ItemChunks);
-
-
+      
+      return ItemCards;
     }
 
     private List<string> SplitSourcePage(string S)

@@ -14,7 +14,25 @@ namespace Ali_ItemFiller
   {
     CSinglePageParser SingleParser;
     CManyPageParser ManyParser;
-    //List<string> Sellers;
+    List<string> Sellers;
+    List<ItemCard> Cards;
+    ItemCard curCard;
+
+    int _current_seller;
+    int TotalSellers;
+    int CurrentSeller
+    {
+      get
+      {
+          return _current_seller;
+      }
+      set
+      {
+        _current_seller = value;
+        LBL_SellersCount.Text = _current_seller.ToString() + " / " + TotalSellers.ToString(); 
+      }
+    }
+    bool doAddSeller;
 
     public Form1()
     {
@@ -26,21 +44,39 @@ namespace Ali_ItemFiller
       SingleParser = new CSinglePageParser();
       ManyParser = new CManyPageParser();
 
-      ManyParser.Parse(@"https://ru.aliexpress.com/af/umi-london.html?ltype=wholesale&d=y&origin=n&isViewCP=y&spm=2114.30010708.0.0.WtIzj6&site=rus&isrefine=y&SearchText=umi+london&CatId=202001195&initiative_id=AS_20161106002100&isAffiliate=y&isBrandWall=y&pvId=2-200005307&blanktest=0");
-
-      //Sellers = new List<string>();
-      CTestParser TP = new CTestParser();
-
+      Sellers = new List<string>();
+      //CTestParser TP = new CTestParser();
+      doAddSeller = false;
+      
+      TotalSellers = 0;
+      CurrentSeller = 0; 
     }
 
+    // bnt_parse
     private void button1_Click(object sender, EventArgs e)
     {
-      SingleParser.Process(TB_ManyPage.Text);
-      Fill_TB_Properties(SingleParser.GetDescriptionOfProperties());
-      Fill_TB_Sellers(SingleParser.GetSeller());
-      TB_ItemName.Text = SingleParser.GetItemName();
+      Cards = ManyParser.Parse(TB_ManyPage.Text);
+      TotalSellers = Cards.Count;
+      
+      CurrentSeller = 0;
+      curCard = Cards[0];
+
+      ShowSeller(CurrentSeller);
     }
 
+    private void Process(ItemCard I)
+    {
+      SingleParser.Process(I.url);
+    }
+
+    /// <summary>
+    ///  метод для получения картинки товара
+    /// </summary>
+    /// <param name="id"></param>
+    private void ShowSeller(int id)
+    {
+
+    }
     private void Fill_TB_Properties(List<string> input)
     {
       foreach (var I in input)
@@ -62,8 +98,19 @@ namespace Ali_ItemFiller
 
     private void BTN_AddSeller_Click(object sender, EventArgs e)
     {
-      SingleParser.Process(TB_Seller.Text);
+      SingleParser.Process(curCard.url);
+      
       Fill_TB_Sellers(SingleParser.GetSeller());
+      Process(curCard);
+
+      Fill_TB_Properties(SingleParser.GetDescriptionOfProperties());
+      Fill_TB_Sellers(SingleParser.GetSeller());
+      TB_ItemName.Text = SingleParser.GetItemName();
+    }
+
+    private void BTN_SkipSeller_Click(object sender, EventArgs e)
+    {
+
     }
   }
 }

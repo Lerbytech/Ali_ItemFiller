@@ -7,3 +7,12 @@ C:\Users\Админ\documents\visual studio 2015\Projects\Ali_ItemFiller\Ali_Ite
 C:\Users\Админ\documents\visual studio 2015\Projects\Ali_ItemFiller\Ali_ItemFiller\obj\Debug\Ali_ItemFiller.csproj.GenerateResource.Cache
 C:\Users\Админ\documents\visual studio 2015\Projects\Ali_ItemFiller\Ali_ItemFiller\obj\Debug\Ali_ItemFiller.exe
 C:\Users\Админ\documents\visual studio 2015\Projects\Ali_ItemFiller\Ali_ItemFiller\obj\Debug\Ali_ItemFiller.pdb
+D:\Ilya\GitHub\Ali_ItemFiller\Ali_ItemFiller\bin\Debug\Ali_ItemFiller.exe.config
+D:\Ilya\GitHub\Ali_ItemFiller\Ali_ItemFiller\obj\Debug\Ali_ItemFiller.exe
+D:\Ilya\GitHub\Ali_ItemFiller\Ali_ItemFiller\obj\Debug\Ali_ItemFiller.pdb
+D:\Ilya\GitHub\Ali_ItemFiller\Ali_ItemFiller\bin\Debug\Ali_ItemFiller.exe
+D:\Ilya\GitHub\Ali_ItemFiller\Ali_ItemFiller\bin\Debug\Ali_ItemFiller.pdb
+D:\Ilya\GitHub\Ali_ItemFiller\Ali_ItemFiller\obj\Debug\Ali_ItemFiller.csprojResolveAssemblyReference.cache
+D:\Ilya\GitHub\Ali_ItemFiller\Ali_ItemFiller\obj\Debug\Ali_ItemFiller.Form1.resources
+D:\Ilya\GitHub\Ali_ItemFiller\Ali_ItemFiller\obj\Debug\Ali_ItemFiller.Properties.Resources.resources
+D:\Ilya\GitHub\Ali_ItemFiller\Ali_ItemFiller\obj\Debug\Ali_ItemFiller.csproj.GenerateResource.Cache
