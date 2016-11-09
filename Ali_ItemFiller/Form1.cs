@@ -13,6 +13,7 @@ namespace Ali_ItemFiller
   public partial class Form1 : Form
   {
     CSinglePageParser SingleParser;
+    CManyPageParser ManyParser;
     //List<string> Sellers;
 
     public Form1()
@@ -23,7 +24,13 @@ namespace Ali_ItemFiller
     private void Form1_Load(object sender, EventArgs e)
     {
       SingleParser = new CSinglePageParser();
+      ManyParser = new CManyPageParser();
+
+      ManyParser.Parse(@"https://ru.aliexpress.com/af/umi-london.html?ltype=wholesale&d=y&origin=n&isViewCP=y&spm=2114.30010708.0.0.WtIzj6&site=rus&isrefine=y&SearchText=umi+london&CatId=202001195&initiative_id=AS_20161106002100&isAffiliate=y&isBrandWall=y&pvId=2-200005307&blanktest=0");
+
       //Sellers = new List<string>();
+      CTestParser TP = new CTestParser();
+
     }
 
     private void button1_Click(object sender, EventArgs e)
