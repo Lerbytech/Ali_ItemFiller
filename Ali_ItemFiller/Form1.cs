@@ -16,6 +16,7 @@ namespace Ali_ItemFiller
     CManyPageParser ManyParser;
     List<string> Sellers;
     List<ItemCard> Cards;
+
     ItemCard curCard;
 
     int _current_seller;
@@ -29,7 +30,7 @@ namespace Ali_ItemFiller
       set
       {
         _current_seller = value;
-        LBL_SellersCount.Text = _current_seller.ToString() + " / " + TotalSellers.ToString(); 
+        LBL_SellersCount.Text = _current_seller.ToString() + " / " + TotalSellers.ToString();
       }
     }
     bool doAddSeller;
@@ -52,7 +53,7 @@ namespace Ali_ItemFiller
       CurrentSeller = 0; 
     }
 
-    // bnt_parse
+    // btn_parse
     private void button1_Click(object sender, EventArgs e)
     {
       Cards = ManyParser.Parse(TB_ManyPage.Text);
@@ -61,24 +62,20 @@ namespace Ali_ItemFiller
       CurrentSeller = 0;
       curCard = Cards[0];
 
-      ShowSeller(CurrentSeller);
+      ShowCard(curCard);
     }
 
-    private void Process(ItemCard I)
+    private void ShowCard(ItemCard I)
     {
       SingleParser.Process(I.url);
+      pictureBox.Load(I.img_url);
+      Fill_TB_Properties(SingleParser.GetDescriptionOfProperties());
+      TB_ItemName.Text = SingleParser.GetItemName();
     }
 
-    /// <summary>
-    ///  метод для получения картинки товара
-    /// </summary>
-    /// <param name="id"></param>
-    private void ShowSeller(int id)
-    {
-
-    }
     private void Fill_TB_Properties(List<string> input)
     {
+      TB_Properties.Clear();
       foreach (var I in input)
       {
         if (TB_Properties.Text.Length == 0)
@@ -98,19 +95,37 @@ namespace Ali_ItemFiller
 
     private void BTN_AddSeller_Click(object sender, EventArgs e)
     {
-      SingleParser.Process(curCard.url);
-      
       Fill_TB_Sellers(SingleParser.GetSeller());
-      Process(curCard);
-
-      Fill_TB_Properties(SingleParser.GetDescriptionOfProperties());
-      Fill_TB_Sellers(SingleParser.GetSeller());
-      TB_ItemName.Text = SingleParser.GetItemName();
     }
 
     private void BTN_SkipSeller_Click(object sender, EventArgs e)
     {
+      if (CurrentSeller <= Cards.Count - 1)
+        CurrentSeller++;
+    }
 
+    private void pictureBox_Click(object sender, EventArgs e)
+    {
+     
+    }
+
+    private void BTN_PrevSeller_Click(object sender, EventArgs e)
+    {
+      if (CurrentSeller >= 1)
+      {
+        CurrentSeller--;
+        ShowCard(Cards[CurrentSeller]);
+      }
+      
+    }
+
+    private void BTN_NextSeller_Click(object sender, EventArgs e)
+    {
+      if (CurrentSeller <= Cards.Count - 1)
+      {
+        CurrentSeller++;
+        ShowCard(Cards[CurrentSeller]);
+      }
     }
   }
 }

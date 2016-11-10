@@ -51,6 +51,7 @@ namespace Ali_ItemFiller
         tempCard.seller_url = GetSellerUrl(Chunks[i]);
         tempCard.orders = GetOrdersCount(Chunks[i]);
         tempCard.stats = new Dictionary<string, string>();
+        tempCard.img_url = GetImageUrl(Chunks[i]);
         res.Add(tempCard);
       }
 
@@ -101,6 +102,19 @@ namespace Ali_ItemFiller
 
       res = res.Substring( res.IndexOf('>') + 1);
       res = res.Substring(0, res.IndexOf('<'));
+      return res;
+    }
+    private string GetImageUrl(string s)
+    {
+      string res = null;
+      string RightSearchPoint = @".jpg""";
+      int RightIndex = s.LastIndexOf(RightSearchPoint);
+      
+      res = s.Substring(0, RightIndex + RightSearchPoint.Length - 1);
+
+      string LeftSearchPoint = @"https://";
+      int LeftIndex = s.LastIndexOf(LeftSearchPoint);
+      res = res.Substring(LeftIndex);
       return res;
     }
 

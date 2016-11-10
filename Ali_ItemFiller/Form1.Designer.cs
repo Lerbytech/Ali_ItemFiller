@@ -30,7 +30,7 @@
     {
       this.TB_ManyPage = new System.Windows.Forms.TextBox();
       this.BTN_Parse = new System.Windows.Forms.Button();
-      this.TB_Properties = new System.Windows.Forms.TextBox();
+      this.TB_FinalProperties = new System.Windows.Forms.TextBox();
       this.label1 = new System.Windows.Forms.Label();
       this.label2 = new System.Windows.Forms.Label();
       this.TB_Sellers = new System.Windows.Forms.TextBox();
@@ -46,6 +46,10 @@
       this.label6 = new System.Windows.Forms.Label();
       this.label7 = new System.Windows.Forms.Label();
       this.LBL_SellersCount = new System.Windows.Forms.Label();
+      this.TB_Properties = new System.Windows.Forms.TextBox();
+      this.BTN_NextSeller = new System.Windows.Forms.Button();
+      this.label8 = new System.Windows.Forms.Label();
+      this.BTN_PrevSeller = new System.Windows.Forms.Button();
       ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
       this.SuspendLayout();
       // 
@@ -68,14 +72,14 @@
       this.BTN_Parse.UseVisualStyleBackColor = true;
       this.BTN_Parse.Click += new System.EventHandler(this.button1_Click);
       // 
-      // TB_Properties
+      // TB_FinalProperties
       // 
-      this.TB_Properties.Location = new System.Drawing.Point(11, 150);
-      this.TB_Properties.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-      this.TB_Properties.Multiline = true;
-      this.TB_Properties.Name = "TB_Properties";
-      this.TB_Properties.Size = new System.Drawing.Size(496, 910);
-      this.TB_Properties.TabIndex = 2;
+      this.TB_FinalProperties.Location = new System.Drawing.Point(11, 150);
+      this.TB_FinalProperties.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+      this.TB_FinalProperties.Multiline = true;
+      this.TB_FinalProperties.Name = "TB_FinalProperties";
+      this.TB_FinalProperties.Size = new System.Drawing.Size(417, 910);
+      this.TB_FinalProperties.TabIndex = 2;
       // 
       // label1
       // 
@@ -93,23 +97,23 @@
       this.label2.Location = new System.Drawing.Point(9, 133);
       this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
       this.label2.Name = "label2";
-      this.label2.Size = new System.Drawing.Size(58, 13);
+      this.label2.Size = new System.Drawing.Size(110, 13);
       this.label2.TabIndex = 4;
-      this.label2.Text = "Свойства:";
+      this.label2.Text = "Итоговые свойства:";
       // 
       // TB_Sellers
       // 
-      this.TB_Sellers.Location = new System.Drawing.Point(511, 150);
+      this.TB_Sellers.Location = new System.Drawing.Point(864, 672);
       this.TB_Sellers.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
       this.TB_Sellers.Multiline = true;
       this.TB_Sellers.Name = "TB_Sellers";
-      this.TB_Sellers.Size = new System.Drawing.Size(398, 910);
+      this.TB_Sellers.Size = new System.Drawing.Size(877, 386);
       this.TB_Sellers.TabIndex = 5;
       // 
       // label3
       // 
       this.label3.AutoSize = true;
-      this.label3.Location = new System.Drawing.Point(509, 133);
+      this.label3.Location = new System.Drawing.Point(864, 657);
       this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
       this.label3.Name = "label3";
       this.label3.Size = new System.Drawing.Size(62, 13);
@@ -136,7 +140,7 @@
       // 
       // BTN_AddSeller
       // 
-      this.BTN_AddSeller.Location = new System.Drawing.Point(937, 609);
+      this.BTN_AddSeller.Location = new System.Drawing.Point(1396, 253);
       this.BTN_AddSeller.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
       this.BTN_AddSeller.Name = "BTN_AddSeller";
       this.BTN_AddSeller.Size = new System.Drawing.Size(117, 30);
@@ -165,7 +169,7 @@
       // 
       // BTN_SkipSeller
       // 
-      this.BTN_SkipSeller.Location = new System.Drawing.Point(1059, 609);
+      this.BTN_SkipSeller.Location = new System.Drawing.Point(1535, 253);
       this.BTN_SkipSeller.Name = "BTN_SkipSeller";
       this.BTN_SkipSeller.Size = new System.Drawing.Size(117, 30);
       this.BTN_SkipSeller.TabIndex = 12;
@@ -175,11 +179,13 @@
       // 
       // pictureBox
       // 
-      this.pictureBox.Location = new System.Drawing.Point(937, 150);
+      this.pictureBox.BackColor = System.Drawing.SystemColors.ActiveBorder;
+      this.pictureBox.Location = new System.Drawing.Point(867, 148);
       this.pictureBox.Name = "pictureBox";
       this.pictureBox.Size = new System.Drawing.Size(464, 425);
       this.pictureBox.TabIndex = 13;
       this.pictureBox.TabStop = false;
+      this.pictureBox.Click += new System.EventHandler(this.pictureBox_Click);
       // 
       // textBox1
       // 
@@ -201,7 +207,7 @@
       // label7
       // 
       this.label7.AutoSize = true;
-      this.label7.Location = new System.Drawing.Point(1122, 19);
+      this.label7.Location = new System.Drawing.Point(1393, 151);
       this.label7.Name = "label7";
       this.label7.Size = new System.Drawing.Size(66, 13);
       this.label7.TabIndex = 16;
@@ -210,16 +216,59 @@
       // LBL_SellersCount
       // 
       this.LBL_SellersCount.AutoSize = true;
-      this.LBL_SellersCount.Location = new System.Drawing.Point(1195, 19);
+      this.LBL_SellersCount.Location = new System.Drawing.Point(1466, 151);
       this.LBL_SellersCount.Name = "LBL_SellersCount";
       this.LBL_SellersCount.Size = new System.Drawing.Size(0, 13);
       this.LBL_SellersCount.TabIndex = 17;
+      // 
+      // TB_Properties
+      // 
+      this.TB_Properties.Location = new System.Drawing.Point(442, 148);
+      this.TB_Properties.Margin = new System.Windows.Forms.Padding(2);
+      this.TB_Properties.Multiline = true;
+      this.TB_Properties.Name = "TB_Properties";
+      this.TB_Properties.Size = new System.Drawing.Size(418, 910);
+      this.TB_Properties.TabIndex = 18;
+      // 
+      // BTN_NextSeller
+      // 
+      this.BTN_NextSeller.Location = new System.Drawing.Point(1506, 180);
+      this.BTN_NextSeller.Name = "BTN_NextSeller";
+      this.BTN_NextSeller.Size = new System.Drawing.Size(93, 23);
+      this.BTN_NextSeller.TabIndex = 19;
+      this.BTN_NextSeller.Text = "Следующий";
+      this.BTN_NextSeller.UseVisualStyleBackColor = true;
+      this.BTN_NextSeller.Click += new System.EventHandler(this.BTN_NextSeller_Click);
+      // 
+      // label8
+      // 
+      this.label8.AutoSize = true;
+      this.label8.Location = new System.Drawing.Point(439, 133);
+      this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+      this.label8.Name = "label8";
+      this.label8.Size = new System.Drawing.Size(105, 13);
+      this.label8.TabIndex = 20;
+      this.label8.Text = "Текущие свойства:";
+      // 
+      // BTN_PrevSeller
+      // 
+      this.BTN_PrevSeller.Location = new System.Drawing.Point(1396, 180);
+      this.BTN_PrevSeller.Name = "BTN_PrevSeller";
+      this.BTN_PrevSeller.Size = new System.Drawing.Size(93, 23);
+      this.BTN_PrevSeller.TabIndex = 21;
+      this.BTN_PrevSeller.Text = "Предыдущий";
+      this.BTN_PrevSeller.UseVisualStyleBackColor = true;
+      this.BTN_PrevSeller.Click += new System.EventHandler(this.BTN_PrevSeller_Click);
       // 
       // Form1
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-      this.ClientSize = new System.Drawing.Size(1430, 1095);
+      this.ClientSize = new System.Drawing.Size(1821, 1095);
+      this.Controls.Add(this.BTN_PrevSeller);
+      this.Controls.Add(this.label8);
+      this.Controls.Add(this.BTN_NextSeller);
+      this.Controls.Add(this.TB_Properties);
       this.Controls.Add(this.LBL_SellersCount);
       this.Controls.Add(this.label7);
       this.Controls.Add(this.label6);
@@ -235,7 +284,7 @@
       this.Controls.Add(this.TB_Sellers);
       this.Controls.Add(this.label2);
       this.Controls.Add(this.label1);
-      this.Controls.Add(this.TB_Properties);
+      this.Controls.Add(this.TB_FinalProperties);
       this.Controls.Add(this.BTN_Parse);
       this.Controls.Add(this.TB_ManyPage);
       this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
@@ -252,7 +301,7 @@
 
     private System.Windows.Forms.TextBox TB_ManyPage;
     private System.Windows.Forms.Button BTN_Parse;
-    private System.Windows.Forms.TextBox TB_Properties;
+    private System.Windows.Forms.TextBox TB_FinalProperties;
     private System.Windows.Forms.Label label1;
     private System.Windows.Forms.Label label2;
     private System.Windows.Forms.TextBox TB_Sellers;
@@ -268,6 +317,10 @@
     private System.Windows.Forms.Label label6;
     private System.Windows.Forms.Label label7;
     private System.Windows.Forms.Label LBL_SellersCount;
+    private System.Windows.Forms.TextBox TB_Properties;
+    private System.Windows.Forms.Button BTN_NextSeller;
+    private System.Windows.Forms.Label label8;
+    private System.Windows.Forms.Button BTN_PrevSeller;
   }
 }
 

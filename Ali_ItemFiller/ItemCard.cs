@@ -13,6 +13,7 @@ namespace Ali_ItemFiller
     public string seller_url; // https://ru.aliexpress.com/store/2232044
     public string seller_name; //"86Prime Mobile Phone store
     public int orders; // число заказов
+    public string img_url;
 
     public Dictionary<string, string> stats; // тривиально
 

@@ -13,7 +13,10 @@ namespace Ali_ItemFiller
 
     public static string GetPageSourceCode(string Url)
     {
-      HttpWebRequest request = (HttpWebRequest)WebRequest.Create(Url);
+      HttpWebRequest request;
+      if (!Url.Contains(@"https://")) 
+        request = (HttpWebRequest)WebRequest.Create(@"https://" + Url);
+      else  request = (HttpWebRequest)WebRequest.Create(Url);
       HttpWebResponse response = (HttpWebResponse)request.GetResponse();
 
       string data = String.Empty;
